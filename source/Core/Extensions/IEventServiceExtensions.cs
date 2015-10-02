@@ -39,7 +39,8 @@ namespace IdentityServer3.Core.Extensions
                     Name = authResult.User.Identity.Name,
                     SignInId = signInMessageId,
                     SignInMessage = signInMessage,
-                    PartialLogin = authResult.IsPartialSignIn
+                    PartialLogin = authResult.IsPartialSignIn,
+                    User = authResult.User
                 });
 
             await events.RaiseEventAsync(evt);
@@ -78,7 +79,8 @@ namespace IdentityServer3.Core.Extensions
                     SignInId = signInMessageId,
                     SignInMessage = signInMessage,
                     PartialLogin = authResult.IsPartialSignIn,
-                    LoginUserName = username
+                    LoginUserName = username,
+                    User = authResult.User
                 });
 
             await events.RaiseEventAsync(evt);
@@ -120,6 +122,7 @@ namespace IdentityServer3.Core.Extensions
                     PartialLogin = authResult.IsPartialSignIn,
                     Provider = externalIdentity.Provider,
                     ProviderId = externalIdentity.ProviderId,
+                    User = authResult.User
                 });
 
             await events.RaiseEventAsync(evt);

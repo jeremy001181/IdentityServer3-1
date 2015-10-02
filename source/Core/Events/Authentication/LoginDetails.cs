@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+using System.Security.Claims;
 using IdentityServer3.Core.Models;
 
 namespace IdentityServer3.Core.Events
@@ -45,6 +46,14 @@ namespace IdentityServer3.Core.Events
         /// <value>
         ///   <c>true</c> if is a partial login; otherwise, <c>false</c>.
         /// </value>
-        public bool PartialLogin { get; set; }      
+        public bool PartialLogin { get; set; }
+        
+        /// <summary>
+        /// The user created from the authentication.
+        /// </summary>
+        /// <value>
+        /// The user.
+        /// </value>
+        public ClaimsPrincipal User { get; set; }
     }
 }
